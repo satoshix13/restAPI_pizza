@@ -1,17 +1,17 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const config = require('./config')
 
 
 function connectDB() {
   try {
-    mongoose.connect('mongodb+srv://pizza_user:RIj39hLP72gEeDL3@cluster0.p8wqw.mongodb.net/Cluster0?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}),
+    mongoose.connect(process.env.BD, {useNewUrlParser: true, useUnifiedTopology: true}),
     console.log("Successfuly connected to DB")
   } catch(e) {
     console.log(e)
   }
 }
-
 
 
 const productRoutes = require('./controllers/products')
