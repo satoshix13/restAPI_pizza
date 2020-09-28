@@ -16,7 +16,7 @@ function connectDB() {
 
 const productRoutes = require('./controllers/products')
 const userRoutes = require('./controllers/users')
-
+const articleRoutes = require('./controllers/articles')
 
 
 //***Middlewares****** *//
@@ -35,6 +35,10 @@ app.get('/', (req,res) => {
 
 app.use('/products', productRoutes)
 app.use('/users', userRoutes)
+app.use('/articles', articleRoutes)
+
+
+
 
 app.get('*', (req,res) => {
   res.send("sorry page not found!")
